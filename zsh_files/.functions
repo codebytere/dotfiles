@@ -1,0 +1,100 @@
+#!/bin/bash
+
+# make a directory then cd into it
+function mkd() {
+	mkdir -p "$@" && cd "$_";
+}
+
+transfer() {
+	if [ $# -eq 0 ]; then
+		echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md";
+		return 1;
+	fi
+	tmpfile=$( mktemp -t transferXXX );
+	if tty -s; then
+		basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g');
+		curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile;
+	else
+		curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ;
+	fi;
+	cat $tmpfile;
+	rm -f $tmpfile;
+} 
+
+# update all the things
+update() {
+    local brew="brew update; brew upgrade;"
+    local gisty="gisty pull_all; gisty sync_delete"
+    local gem="gem update;"
+    local pip="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U -q"
+    sh -c $brew$gisty; sudo sh -c $gem$pip
+}
+
+# change directory to the current Finder directory
+cdf() {
+    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    if [ "$target" != "" ]; then
+        cd "$target"; pwd
+    else
+        echo 'No Finder window found' >&2
+    fi
+}
+
+# use Git’s colored diff when available
+hash git &>/dev/null;
+if [ $? -eq 0 ]; then
+	function diff() {
+		git diff --no-index --color-words "$@";
+	}
+fi;
+
+# Syntax-highlight JSON strings or files
+# Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
+function json() {
+	if [ -t 0 ]; then # argument
+		python -mjson.tool <<< "$*" | pygmentize -l javascript;
+	else # pipe
+		python -mjson.tool | pygmentize -l javascript;
+	fi;
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
+# toggle dotfiles shown vs hidden
+function toggle_dotfiles(){
+  if [ ! -z "$1" ]; then
+    show_dotfiles=$1
+  else
+    DOTFILE_STATE=$(defaults read com.apple.finder AppleShowAllFiles)
+    if [ "${DOTFILE_STATE}" == "1" ]; then
+      show_dotfiles="FALSE"
+    else
+      show_dotfiles="TRUE"
+    fi
+  fi
+
+  defaults write com.apple.finder AppleShowAllFiles $show_dotfiles
+  killall Finder
+}
+
+# prints path to app
+function whichapp() {
+  local appNameOrBundleId=$1 isAppName=0 bundleId
+  [[ $appNameOrBundleId =~ \.[aA][pP][pP]$ || $appNameOrBundleId =~ ^[^.]+$ ]] && isAppName=1
+  if (( isAppName )); then
+    bundleId=$(osascript -e "id of application \"$appNameOrBundleId\"" 2>/dev/null) ||
+      { echo "$FUNCNAME: ERROR: Application with specified name not found: $appNameOrBundleId" 1>&2; return 1; }
+  else
+    bundleId=$appNameOrBundleId
+  fi
+  osascript -e "tell application \"Finder\" to POSIX path of (get application file id \"$bundleId\" as alias)" 2>/dev/null ||
+    { echo "$FUNCNAME: ERROR: Application with specified bundle ID not found: $bundleId" 1>&2; return 1; }
+}

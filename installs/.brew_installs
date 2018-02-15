@@ -1,0 +1,119 @@
+#!/bin/bash
+
+function require_brew() {
+  brew list $1 > /dev/null 2>&1 | true
+  if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    action "brew install $1"
+    brew install $1 $2
+    if [[ $? != 0 ]]; then
+      error "failed to install $1! aborting..."
+      exit -1
+    fi
+  fi
+  ok
+}
+
+function cask_install() {
+  running "brew cask $1"
+  brew cask search $1 > /dev/null 2>&1 | true
+  if [[ ${PIPESTATUS[0]} != 0 ]]; then
+    action "brew cask install $1 $2"
+    brew cask install $1 $2
+    if [[ $? != 0 ]]; then
+      error "failed to install $1! aborting..."
+      exit -1
+    fi
+  fi
+  ok
+}
+
+########## BREW PKGS ##########
+running "installing python"
+require_brew python
+
+running "installing zsh"
+require_brew zsh
+
+yes_or_no "would you like to install fontconfig?"
+if confirmed; then
+  require_brew fontconfig
+fi
+
+########## APPS ###########
+running "installing brew cask"
+brew tap caskroom/cask
+
+#### DEVELOPMENT ####
+yes_or_no "would you like to install iterm?"
+if confirmed; then
+  brew cask install iterm2
+fi
+
+yes_or_no "would you like to install atom?"
+if confirmed; then
+  brew cask install atom
+fi
+
+#### MEDIA ####
+yes_or_no "would you like to install vlc?"
+if confirmed; then
+  brew cask install vlc
+fi
+
+yes_or_no "would you like to install spotify?"
+if confirmed; then
+  brew cask install spotify
+fi
+
+yes_or_no "would you like to install transmission?"
+if confirmed; then
+  brew cask install transmission
+fi
+
+#### COMMUNICATION ####
+yes_or_no "would you like to install slack?"
+if confirmed; then
+  brew cask install slack
+fi
+
+yes_or_no "would you like to install nylas-n1?"
+if confirmed; then
+  brew cask install nylas-n1
+fi
+
+yes_or_no "would you like to install goofy?"
+if confirmed; then
+  brew cask install goofy
+fi
+
+#### MISC ####
+yes_or_no "would you like to install google chrome?"
+if confirmed; then
+  brew cask install google-chrome
+fi
+
+yes_or_no "would you like to install docker toolbox?"
+if confirmed; then
+  brew cask install dockertoolbox
+fi
+
+yes_or_no "would you like to install flux?"
+if confirmed; then
+  brew cask install flux
+fi
+
+yes_or_no "would you like to install dropbox?"
+if confirmed; then
+  brew cask install dropbox
+fi
+
+#### SECURITY ####
+yes_or_no "would you like to install 1password?"
+if confirmed; then
+  brew cask install 1password
+fi
+
+running "cleaning up cask files"
+brew cask cleanup
+
+bot "chosen brew and brew cask packages installed successfully"
