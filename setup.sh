@@ -34,22 +34,22 @@ running "installing node"
 brew install node
 
 running "Select which bundled brew & brew-cask packages you want to install"
-source installs/.brew_installs
+source installs/brew_installs
 ok "feel free to add more brew packages! "
 
 # globally install key npm pkgs
 running "Select which bundled npm modules you want to install"
-source installs/.npm_installs
+source installs/npm_installs
 ok "feel free to add more npm modules! "
 
 # globally install important gems
 running "Select which bundled gems you want to install"
-source installs/.gem_installs
+source installs/gem_installs
 ok "feel free to add more ruby gems! "
 
 #globally install atom packages
 running "select the atom packages you would like to install"
-source installs/.apm_installs
+source installs/apm_installs
 ok "feel free to add more atom packages! "
 
 # hard link .zshrc
