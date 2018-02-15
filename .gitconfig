@@ -1,6 +1,7 @@
 [user]
 	name = Shelley Vohr
 	email = shelley.vohr@gmail.com
+	signingkey = 5599653C
 
 [core]
 	editor = nano
@@ -13,6 +14,9 @@
 [rerere]
 	enabled = 1
 	autoupdate = 1
+
+[format]
+	pretty = "%H %ci %ce %ae %d %s"
 
 [push]
 	default = simple
@@ -58,13 +62,17 @@
 	ba = branch -a
 	bd = branch -d
 	br = branch -r
+	bv = branch -v
 	#############
 	c = commit
 	ca = commit -a
 	cm = commit -m
 	cam = commit -am
 	cd = commit --amend
+	#############
 	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
 	#############
 	d = diff
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
@@ -72,13 +80,13 @@
 	f = fetch
 	fo = fetch origin
 	fu = fetch upstream
-	#############
 	fp = format-patch
 	#############
 	g = grep -p
 	#############
 	ls = ls-files
 	lsf = "!git ls-files | grep -i"
+	lo = log --oneline
 	#############
 	m = merge
 	ma = merge --abort
@@ -88,6 +96,8 @@
 	co = checkout
 	cob = checkout -b
 	com = checkout master
+	#############
+	cl = clone
 	#############
 	pr = prune -v
 	#############
@@ -137,5 +147,11 @@
 	#############
 	s = status
 	sb = status -s -b
+	sh = show
 	st = stash
+	sa = stash apply
+	standup = !git log --since yesterday --author $(git config user.email) --pretty=short
 wh
+
+[commit]
+	gpgsign = true
