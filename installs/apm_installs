@@ -12,22 +12,29 @@ function require_apm() {
 
 # misc packages
 require_apm atom-beautify
+require_apm atom-touchbar
+require_apm atom-typescript
 require_apm javascript-snippets
 require_apm language-mips
 require_apm advanced-open-file
+require_apm split-diff
+require_apm pdf-view
+require_apm flex-tool-bar
+require_apm latex
+require_apm build-python
+require_apm merge-conflicts
+require_apm pigments
+require_apm file-icons
 
 # linter packages
 require_apm linter
 require_apm linter-erb
 require_apm linter-eslint
+require_apm linter-js-standard
 require_apm linter-jsonlint
 require_apm linter-chktex
 require_apm linter-shellcheck
 require_apm linter-pylint
-
-require_apm build-python
-require_apm merge-conflicts
-require_apm pigments
 
 # theme
 require_apm pristine-ui
