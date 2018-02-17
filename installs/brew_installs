@@ -14,16 +14,17 @@ running "installing brew cask"
 brew tap caskroom/cask
 
 #### DEVELOPMENT ####
-brew cask install iterm2
+brew cask install hyper
 brew cask install atom
+brew cask install airtable
+brew cask install polymail
 brew cask install vlc
 brew cask install spotify
 brew cask install transmission
 brew cask install slack
 brew cask install nylas-n1
-brew cask install goofy
+brew cask install caprine
 brew cask install google-chrome
-brew cask install dockertoolbox
 brew cask install flux
 brew cask install dropbox
 brew cask install 1password
