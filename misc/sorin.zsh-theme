@@ -1,11 +1,11 @@
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
 
-PROMPT='%{$fg_bold[green]%}codebytere%{$reset_color%} %{$fg[blue]%}%B%c%b%{$reset_color%} $(git_prompt_info)%{$fg_bold[red]%}❯ '
+PROMPT='%{$fg[blue]%}%B%c%b%{$reset_color%} $(git_prompt_info)%{$fg_bold[red]%}❯ '
 
 RPROMPT='%{$fg_bold[white]%}%t'
 
 # git theming
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[purple]%}git%{$reset_color%}:%{$fg_bold[blue]%}%{$fg_no_bold[cyan]%}%B"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[green]%}on%{$reset_color%} %{$fg_bold[magenta]%}git:%{$reset_color%}%{$fg_bold[blue]%}%{$fg_no_bold[cyan]%}%B"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg_bold[blue]%}%{$reset_color%} "
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 ZSH_THEME_GIT_PROMPT_DIRTY=""
