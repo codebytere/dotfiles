@@ -1,0 +1,27 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "linux", autostart: false do |linux|
+    linux.vm.box = "boxcutter/ubuntu1604-desktop"
+    linux.vm.network "public_network"
+    linux.vm.synced_folder "~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Duke/", "/shared"
+
+    linux.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.memory = "10240"
+    end
+  end
+
+  config.vm.define "windows", autostart: false do |win|
+    win.vm.box = "senglin/win-10-enterprise-vs2015community"
+    win.vm.network "public_network"
+    config.vm.communicator = "winrm"
+    win.vm.synced_folder "~/Developer", "/vagrant"
+
+    win.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+      vb.memory = "2048"
+    end
+  end
+end
