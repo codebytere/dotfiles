@@ -15,8 +15,9 @@ require_apm atom-beautify
 require_apm atom-touchbar
 require_apm atom-typescript
 require_apm javascript-snippets
-require_apm language-mips
 require_apm advanced-open-file
+require_apm clang-format
+require_apm git-tabs
 require_apm split-diff
 require_apm pdf-view
 require_apm flex-tool-bar
@@ -26,9 +27,14 @@ require_apm merge-conflicts
 require_apm pigments
 require_apm file-icons
 
+# languages
+require_apm language-mips
+require_apm language-latex
+
 # linter packages
 require_apm linter
 require_apm linter-erb
+require_apm linter-ruby
 require_apm linter-eslint
 require_apm linter-js-standard
 require_apm linter-jsonlint

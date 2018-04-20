@@ -43,15 +43,6 @@
       color: "#cc00ff"
   }
   {
-    type: "button"
-    icon: "screen-full"
-    callback: "expose:toggle"
-    tooltip: "Expose"
-    style:
-      color: "#7733ff"
-  }
-
-  {
     type: "spacer"
   }
   {
