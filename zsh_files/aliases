@@ -12,8 +12,10 @@ alias dt='cd ~/Desktop'
 alias dv='cd ~/Developer'
 alias dot='cd ~/.dotfiles'
 
-alias e='dv && cd electron'
-alias repros='dv && cd repros'
+alias e='dv && cd @electron/electron'
+alias enode='dv && cd @electron/node'
+alias repros='dv && cd @electron/repros'
+alias node='dv && cd @node/node'
 
 alias up='cd ..'
 alias 2up='up && up'
@@ -34,21 +36,23 @@ alias c='tr -d '\n' | pbcopy'
 
 ############### WORK ###############
 
-alias eb='~/Developer/electron/script/bootstrap.py -d -v'
-alias ebd='~/Developer/electron/script/build.py -c D'
-alias ebr='~/Developer/electron/script/build.py -c R'
+alias work='cd ~/Developer/@codebytere/does-work'
+
+alias eb='~/Developer/@electron/electron/script/bootstrap.py -d -v'
+alias ebd='~/Developer/@electron/electron/script/build.py -c D'
+alias ebr='~/Developer/@electron/electron/script/build.py -c R'
 alias ebbd='eb && ebd'
 alias ebbr='eb && ebr'
 
-alias sap='script/patch.py -r src -p'
-alias usap='script/patch.py -R -r src -p'
-
-alias erun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
+alias erun='~/Developer/@electron/electron/out/D/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
 alias et='ebd && npm run test'
 alias ec='npm run clean && ebbd'
 
-alias debug='lldb ~/Developer/electron/out/D/Electron.app'
+alias sap='script/patch.py -r src -p'
+alias usap='script/patch.py -R -r src -p'
+
+alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
 
 alias sim='node_modules/.bin/probot simulate'
 
