@@ -38,23 +38,31 @@ alias c='tr -d '\n' | pbcopy'
 
 alias work='cd ~/Developer/@codebytere/does-work'
 
+## electron build stuff
 alias eb='~/Developer/@electron/electron/script/bootstrap.py -d -v'
 alias ebd='~/Developer/@electron/electron/script/build.py -c D'
 alias ebr='~/Developer/@electron/electron/script/build.py -c R'
 alias ebbd='eb && ebd'
 alias ebbr='eb && ebr'
 
+# electron run stuff
 alias erun='~/Developer/@electron/electron/out/D/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
 alias et='ebd && npm run test'
 alias ec='npm run clean && ebbd'
+alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
 
+## libcc stuff
 alias sap='script/patch.py -r src -p'
 alias usap='script/patch.py -R -r src -p'
 
-alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
+# node stuff
+alias nt='./configure && make -j4 test'
 
+# probot stuff
 alias sim='node_modules/.bin/probot simulate'
+
+alias
 
 ############### PROCESSES ###############
 
