@@ -3,8 +3,6 @@
 ############### NAVIGATION ###############
 
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/'
-alias duke='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Duke/'
-alias sen='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Duke/Senior/Fall'
 
 alias home='cd ~'
 alias dl='cd ~/Downloads'
@@ -62,8 +60,6 @@ alias nt='./configure && make -j4 test'
 # probot stuff
 alias sim='node_modules/.bin/probot simulate'
 
-alias
-
 ############### PROCESSES ###############
 
 alias serve='http-server -o'
@@ -73,7 +69,7 @@ alias lin-me='dv && cd vagrant && vagrant up linux'
 
 ############### MISC ###############
 
-alias localip='ipconfig getifaddr en0' #get IP address
+alias localip='ipconfig getifaddr en0'
 
 #lock the screen
 alias lksc='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
