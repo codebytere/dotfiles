@@ -48,6 +48,9 @@ alias erun='~/Developer/@electron/electron/out/D/Electron.app/Contents/MacOS/Ele
 alias ebrun='ebd && erun'
 alias et='ebd && npm run test'
 alias ec='npm run clean && ebbd'
+
+# electron debug stuff
+alias debug-spec='lldb -- out/D/Electron.app spec'
 alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
 
 # libcc stuff
