@@ -60,6 +60,9 @@ alias usap='script/patch.py -R -r src -p'
 # node stuff
 alias nt='./configure && make -j4 test'
 
+# node stuff
+alias lb='./gyp_uv.py -f make && make -C out'
+
 # probot stuff
 alias sim='node_modules/.bin/probot simulate'
 
