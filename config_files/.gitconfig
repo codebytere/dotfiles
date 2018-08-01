@@ -100,6 +100,7 @@
 	cl = clone
 	#############
 	pr = prune -v
+	pa = "!curl -L $1.patch | git am -3 -S --whitespace=fix #"
 	#############
 	ps = push
 	psf = push -f
