@@ -56,11 +56,14 @@ alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
 # libcc stuff
 alias sap='script/patch.py -r src -p'
 alias usap='script/patch.py -R -r src -p'
+alias cu='script/update -t x64'
+alias cb='script/build -t x64'
 
 # node stuff
+alias nb='./configure && make -j4'
 alias nt='./configure && make -j4 test'
 
-# node stuff
+# libuv stuff
 alias lb='./gyp_uv.py -f make && make -C out'
 
 # probot stuff
