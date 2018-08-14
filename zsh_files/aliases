@@ -46,7 +46,7 @@ alias ebbr='eb && ebr'
 # electron run stuff
 alias erun='~/Developer/@electron/electron/out/D/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
-alias et='ebd && npm run test'
+alias et='ebd && npm test -- --ci'
 alias nuke='npm run clean && ebbd'
 
 # electron debug stuff
