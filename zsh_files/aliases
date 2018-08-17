@@ -10,9 +10,10 @@ alias dt='cd ~/Desktop'
 alias dv='cd ~/Developer'
 alias dot='cd ~/.dotfiles'
 
-alias e='dv && cd @electron/electron'
-alias enode='dv && cd @electron/node'
-alias repros='dv && cd @electron/repros'
+alias e='dv && cd electron'
+alias enode='dv && cd node'
+alias libcc='dv && cd libchromiumcontent'
+alias repros='dv && cd repros'
 alias node='dv && cd @node/node'
 
 alias up='cd ..'
@@ -23,7 +24,7 @@ alias 3up='2up && up'
 
 alias _='sudo'
 alias cls='clear'
-alias a="atom -a"
+alias a="code -a"
 
 alias reload!='source ~/.dotfiles/.zshrc'
 
@@ -34,24 +35,24 @@ alias c='tr -d '\n' | pbcopy'
 
 ############### WORK ###############
 
-alias work='cd ~/Developer/@codebytere/does-work'
+alias work='cd ~/Developer/does-work'
 
 # electron build stuff
-alias eb='~/Developer/@electron/electron/script/bootstrap.py -d -v'
-alias ebd='~/Developer/@electron/electron/script/build.py -c D'
-alias ebr='~/Developer/@electron/electron/script/build.py -c R'
+alias eb='~/Developer/electron/script/bootstrap.py -d -v'
+alias ebd='~/Developer/electron/script/build.py -c D'
+alias ebr='~/Developer/electron/script/build.py -c R'
 alias ebbd='eb && ebd'
 alias ebbr='eb && ebr'
 
 # electron run stuff
-alias erun='~/Developer/@electron/electron/out/D/Electron.app/Contents/MacOS/Electron'
+alias erun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
 alias et='ebd && npm test -- --ci'
 alias nuke='npm run clean && ebbd'
 
 # electron debug stuff
 alias debug-spec='lldb -- out/D/Electron.app spec'
-alias debug='lldb ~/Developer/@electron/electron/out/D/Electron.app'
+alias debug='lldb ~/Developer/electron/out/D/Electron.app'
 
 # libcc stuff
 alias sap='script/patch.py -r src -p'
