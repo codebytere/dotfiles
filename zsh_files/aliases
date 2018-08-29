@@ -14,7 +14,7 @@ alias e='dv && cd electron'
 alias enode='dv && cd node'
 alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
-alias node='dv && cd @node/node'
+alias node='dv && cd @nodejs/node'
 
 alias up='cd ..'
 alias 2up='up && up'
@@ -25,6 +25,7 @@ alias 3up='2up && up'
 alias _='sudo'
 alias cls='clear'
 alias a="code -a"
+alias g='git'
 
 alias reload!='source ~/.dotfiles/.zshrc'
 
