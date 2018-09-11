@@ -15,18 +15,19 @@ alias eb='g-n && gclient sync --with_branch_heads --with_tags'
 alias ebd='g-n && ninja -C out/Default electron:electron_app'
 
 # test prep stuff
-test_setup() {
+test_setup_run() {
   g-n
   ebd
   ninja -C out/Default third_party/electron_node:headers
   (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
   ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec --ci
+  e
 }
 
 # electron run stuff
 alias erun='~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
-alias et='test_setup'
+alias et='test_setup_run'
 
 # electron debug stuff
 alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron spec'
