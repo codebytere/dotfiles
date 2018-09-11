@@ -5,10 +5,14 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 ##### MISC VARS #####
+
+# autoload -U promptinit; promptinit
+# prompt pure
+
 ZSH_THEME="sorin"
 
 #load in all dotfile aliases and fxns
-for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource}; do
+for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource,electron}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 

@@ -10,12 +10,6 @@ alias dt='cd ~/Desktop'
 alias dv='cd ~/Developer'
 alias dot='cd ~/.dotfiles'
 
-alias e='dv && cd electron'
-alias enode='dv && cd node'
-alias libcc='dv && cd libchromiumcontent'
-alias repros='dv && cd repros'
-alias node='dv && cd @nodejs/node'
-
 alias up='cd ..'
 alias 2up='up && up'
 alias 3up='2up && up'
@@ -33,43 +27,6 @@ alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
 
 alias c='tr -d '\n' | pbcopy'
-
-############### WORK ###############
-
-alias work='cd ~/Developer/does-work'
-
-# electron build stuff
-alias eb='~/Developer/electron/script/bootstrap.py -d -v'
-alias ebd='~/Developer/electron/script/build.py -c D'
-alias ebr='~/Developer/electron/script/build.py -c R'
-alias ebbd='eb && ebd'
-alias ebbr='eb && ebr'
-
-# electron run stuff
-alias erun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
-alias ebrun='ebd && erun'
-alias et='ebd && npm test -- --ci'
-alias nuke='npm run clean && ebbd'
-
-# electron debug stuff
-alias debug-spec='lldb -- out/D/Electron.app spec'
-alias debug='lldb ~/Developer/electron/out/D/Electron.app'
-
-# libcc stuff
-alias sap='script/patch.py -r src -p'
-alias usap='script/patch.py -R -r src -p'
-alias cu='script/update -t x64'
-alias cb='script/build -t x64'
-
-# node stuff
-alias nb='./configure && make -j4'
-alias nt='./configure && make -j4 test'
-
-# libuv stuff
-alias lb='./gyp_uv.py -f make && make -C out'
-
-# probot stuff
-alias sim='node_modules/.bin/probot simulate'
 
 ############### PROCESSES ###############
 
