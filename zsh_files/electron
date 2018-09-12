@@ -21,13 +21,12 @@ test_setup_run() {
   ninja -C out/Default third_party/electron_node:headers
   (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
   ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec --ci
-  e
 }
 
 # electron run stuff
 alias erun='~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron'
 alias ebrun='ebd && erun'
-alias et='test_setup_run'
+alias et='test_setup_run && e'
 
 # electron debug stuff
 alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron spec'
