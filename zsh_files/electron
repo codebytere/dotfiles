@@ -11,8 +11,8 @@ alias repros='dv && cd repros'
 alias node='dv && cd @nodejs/node'
 
 # electron build stuff
-alias eb='g-n && gclient sync --with_branch_heads --with_tags'
-alias ebd='g-n && ninja -C out/Default electron:electron_app'
+alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
+alias ebd='g-n && ninja -C out/Default electron:electron_app && e'
 
 # test prep stuff
 test_setup_run() {
