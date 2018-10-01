@@ -23,9 +23,16 @@ test_setup_run() {
   ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec --ci
 }
 
+build_run() {
+  run_dir=$(pwd)
+  ebd
+  cd $run_dir
+  erun $1
+}
+
 # electron run stuff
 alias erun='~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron'
-alias ebrun='ebd && erun'
+alias ebrun='build_run'
 alias et='test_setup_run && e'
 
 # electron debug stuff
