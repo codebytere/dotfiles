@@ -6,46 +6,38 @@ alias g-n='cd ~/Developer/electron-gn/src'
 alias e='dv && g-n && cd electron'
 alias libuv='dv && cd libuv'
 alias enode='dv && cd node'
-alias libcc='dv && cd libchromiumcontent'
+alias libcc='dv && cd libchromiumcontent'gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 alias repros='dv && cd repros'
 alias node='dv && cd @nodejs/node'
 
-# electron build stuff
+# electron build commands
 alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
-alias ebd='g-n && ninja -C out/Default electron:electron_app && e'
+alias ebd='g-n && ninja -C out/Debug electron:electron_app'
 
-# test prep stuff
+# rebuild node headers and run tests in ci mode
 test_setup_run() {
-  g-n
-  ebd
-  ninja -C out/Default third_party/electron_node:headers
-  (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
-  ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec --ci
+  g-n && ebd
+  ninja -C out/Debug third_party/electron_node:headers
+  npm test -- --ci
 }
 
+# build and run a repro
 build_run() {
   run_dir=$(pwd)
-  ebd
-  cd $run_dir
+  ebd && cd $run_dir
   erun $1
 }
 
-# electron run stuff
-alias erun='~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron'
+# electron run commands
+alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
 alias ebrun='build_run'
 alias et='test_setup_run && e'
 
-# electron debug stuff
-alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron spec'
-alias debug='lldb ~/Developer/electron-gn/src/out/Default/Electron.app/Contents/MacOS/Electron'
+# electron debug commands
+alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron spec'
+alias debug='lldb ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
 
-# libcc stuff
-alias sap='script/patch.py -r src -p'
-alias usap='script/patch.py -R -r src -p'
-alias cu='script/update -t x64'
-alias cb='script/build -t x64'
-
-# node stuff
+# node commands
 alias nb='./configure && make -j4'
 alias nt='./configure && make -j4 test'
 
