@@ -12,13 +12,13 @@ alias node='dv && cd @nodejs/node'
 
 # electron build commands
 alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
-alias ebd='g-n && ninja -C out/Debug electron:electron_app'
+alias ebd='g-n && ninja -C out/Debug electron:electron'
 
 # rebuild node headers and run tests in ci mode
 test_setup_run() {
   g-n && ebd
   ninja -C out/Debug third_party/electron_node:headers
-  npm test -- --ci
+  e && npm test -- --ci
 }
 
 # build and run a repro
