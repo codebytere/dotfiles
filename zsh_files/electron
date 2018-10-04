@@ -8,7 +8,6 @@ alias libuv='dv && cd libuv'
 alias enode='dv && cd node'
 alias libcc='dv && cd libchromiumcontent'gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 alias repros='dv && cd repros'
-alias node='dv && cd @nodejs/node'
 
 # electron build commands
 alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
@@ -27,6 +26,9 @@ build_run() {
   ebd && cd $run_dir
   erun $1
 }
+
+# misc
+alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
 
 # electron run commands
 alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
