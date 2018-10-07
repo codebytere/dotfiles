@@ -23,8 +23,12 @@ test_setup_run() {
 # build and run a repro
 build_run() {
   run_dir=$(pwd)
-  ebd && cd $run_dir
-  erun $1
+  {
+    ebd && cd $run_dir
+    erun $1
+  } || {
+    cd $run_dir
+  }
 }
 
 # misc
