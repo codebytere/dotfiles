@@ -46,7 +46,7 @@ alias debug='lldb ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/Ma
 # node commands
 alias nb='./configure && make -j4'
 alias nt='./configure && make -j4 test'
-alias gt=‘tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`’
+alias gt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
 
 # libuv stuff
 alias lb='./gyp_uv.py -f make && make -C out'
