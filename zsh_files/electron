@@ -13,6 +13,14 @@ alias repros='dv && cd repros'
 alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
 alias ebd='g-n && ninja -C out/Debug electron:electron'
 
+# misc
+alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
+
+# electron run commands
+alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
+alias ebrun='build_run'
+alias et='test_setup_run && e'
+
 # rebuild node headers and run tests in ci mode
 test_setup_run() {
   g-n && ebd
@@ -30,14 +38,6 @@ build_run() {
     cd $run_dir
   }
 }
-
-# misc
-alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
-
-# electron run commands
-alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
-alias ebrun='build_run'
-alias et='test_setup_run && e'
 
 # electron debug commands
 alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron spec'
