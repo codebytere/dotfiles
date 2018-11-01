@@ -1,0 +1,15 @@
+diff --git a/lib/git.zsh b/lib/git.zsh
+index f7eccb8..f164eca 100644
+--- a/lib/git.zsh
++++ b/lib/git.zsh
+@@ -20,7 +20,9 @@ function parse_git_dirty() {
+     if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
+       FLAGS+='--untracked-files=no'
+     fi
+-    STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
++    if [[ "$(pwd)" != *"/Users/codebytere/Developer/electron-gn/src"* ]]; then
++      STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
++    fi
+   fi
+   if [[ -n $STATUS ]]; then
+     echo "$ZSH_THEME_GIT_PROMPT_DIRTY"
