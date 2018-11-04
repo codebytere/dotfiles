@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 ZSH_THEME="sorin"
 
 #load in all dotfile aliases and fxns
-for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource,electron}; do
+for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource,electron,chromium}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
