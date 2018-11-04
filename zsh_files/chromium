@@ -1,0 +1,14 @@
+# chromium run commands
+alias cb='ninja -C out/Default chrome'
+
+# ensure ccache has its shit together
+chromium_ccache() {
+  if [[ "$PWD" = */Users/codebytere/Developer/chromium/src* ]]; then
+    export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
+    gn gen out-gn --args='cc_wrapper="ccache"'
+    export CCACHE_CPP2=yes
+    export CCACHE_SLOPPINESS=time_macros  
+  fi
+}
+
+alias cgo='chromium_ccache'
