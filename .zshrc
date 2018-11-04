@@ -6,9 +6,6 @@ source $ZSH/oh-my-zsh.sh
 
 ##### MISC VARS #####
 
-# autoload -U promptinit; promptinit
-# prompt pure
-
 ZSH_THEME="sorin"
 
 #load in all dotfile aliases and fxns
