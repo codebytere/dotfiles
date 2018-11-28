@@ -20,8 +20,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 ##### USER CONFIG #####
 export PATH="/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/scripts/rvm:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.node/bin::$HOME/depot_tools:$PATH"
 
-# adds thefuck to shell
-eval $(thefuck --alias)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export LIBCHROMIUMCONTENT_MIRROR=https://electron-bucket.dev.atl-paas.net
 
