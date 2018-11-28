@@ -21,7 +21,7 @@ alias cls='clear'
 alias a="code -a"
 alias g='git'
 
-alias reload!='source ~/.dotfiles/.zshrc'
+alias r!='source ~/.dotfiles/.zshrc'
 
 alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'

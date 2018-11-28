@@ -1,3 +1,7 @@
+// Future versions of Hyper may add additional config options,
+// which will not automatically be merged into this file.
+// See https://hyper.is#cfg for all currently supported options.
+
 module.exports = {
   config: {
     fontSize: 12,
@@ -14,6 +18,7 @@ module.exports = {
          font-variant-ligatures: contextual;
        }
     `,
+    commands: ['source ~/.dotfiles/.zshrc && cls'],
     showHamburgerMenu: '',
     showWindowControls: '',
     padding: '12px 14px',
@@ -41,6 +46,6 @@ module.exports = {
     bell: 'SOUND',
     copyOnSelect: false
   },
-  plugins: ["hyperlinks", "hyper-search", "hyperminimal"],
+  plugins: ["hyperlinks", "hyper-search", "hyperminimal", "hyper-startup"],
   localPlugins: []
 };
