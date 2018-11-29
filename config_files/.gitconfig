@@ -70,10 +70,10 @@
 	bv = branch -v
 	#############
 	c = commit
-	ca = commit -a
+	ca = commit --amend
 	cm = commit -m
 	cam = commit -am
-	cd = commit --amend
+	can = commit --amend --no-edit
 	#############
 	cp = cherry-pick
 	cpa = cherry-pick --abort
