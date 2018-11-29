@@ -4,9 +4,10 @@
 	signingkey = 5599653C
 
 [core]
-	editor = nano
+	editor = code --wait
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol, space-before-tab
 	excludesfile = ~/.gitignore
+	precomposeUnicode = true
 
 [web]
 	browser = google-chrome
@@ -14,6 +15,9 @@
 [rerere]
 	enabled = 1
 	autoupdate = 1
+
+[rebase]
+  autosquash = true
 
 [format]
 	pretty = "%H %ci %ce %ae %d %s"
@@ -59,8 +63,9 @@
 	ams = am --skip
 	#############
 	b = branch
+	bm = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 	ba = branch -a
-	bd = branch -d
+	bd = branch -D
 	br = branch -r
 	bv = branch -v
 	#############
@@ -75,6 +80,7 @@
 	cpc = cherry-pick --continue
 	#############
 	d = diff
+	ds = diff --staged
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 	#############
 	f = fetch
@@ -86,7 +92,7 @@
 	#############
 	ls = ls-files
 	lsf = "!git ls-files | grep -i"
-	lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lo = "log --graph --decorate --pretty=oneline --abbrev-commit --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
 	#############
 	m = merge
 	ma = merge --abort
@@ -99,15 +105,16 @@
 	#############
 	cl = clone
 	#############
+	pa = "!f() { curl -L $1.patch | git am -3 --whitespace=fix; }; f"
 	pr = prune -v
-	pa = "!curl -L $1.patch | git am -3 -S --whitespace=fix #"
 	#############
 	ps = push
-	psf = push -f
-	psu = push -u
+	psf = push --force-with-lease
+	psu = push upstream
 	pso = push origin
 	psao = push --all origin
-	psfo = push -f origin
+	psfo = push --force-with-lease origin
+	psfu = push --force-with-lease upstream
 	psuo = push -u origin
 	psom = push origin master
 	psuom = push -u origin master
@@ -119,10 +126,11 @@
 	plom = pull origin master
 	#############
 	pb = pull --rebase
+	pba = pull --rebase --autostash
 	pbo = pull --rebase origin
-	pbp = pull --rebase upstream
+	pbu = pull --rebase upstream
 	pbom = pull --rebase origin master
-	pbpm = pull --rebase upstream master
+	pbum = pull --rebase upstream master
 	#############
 	rb = rebase
 	rba = rebase --abort
@@ -152,7 +160,18 @@
 	st = stash
 	sa = stash apply
 	standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+	#############
+	wkl = worktree list
+	wka = worktree add
 wh
 
 [commit]
 	gpgsign = true
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[http]
+	cookiefile = /Users/codebytere/.gitcookies
