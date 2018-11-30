@@ -59,6 +59,7 @@
 	ac = apply --check
 	#############
 	ama = am --abort
+	amc = am --continue
 	amr = am --resolved
 	ams = am --skip
 	#############
