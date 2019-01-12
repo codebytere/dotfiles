@@ -88,9 +88,9 @@
 	#############
 	g = grep -p
 	#############
-	ls = ls-files
-	lsf = "!git ls-files | grep -i"
-	lo = "log --graph --decorate --pretty=oneline --abbrev-commit --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'"
+	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+  tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	#############
 	m = merge
 	ma = merge --abort
@@ -157,7 +157,7 @@
 	sh = show
 	st = stash
 	sa = stash apply
-	standup = !git log --since yesterday --author $(git config user.email) --pretty=short
+	sp = stash pop
 	#############
 	wkl = worktree list
 	wka = worktree add
