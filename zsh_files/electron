@@ -6,7 +6,7 @@ alias g-n='cd ~/Developer/electron-gn/src'
 alias e='dv && g-n && cd electron'
 alias libuv='dv && cd libuv'
 alias enode='dv && cd node'
-alias libcc='dv && cd libchromiumcontent'gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
 # electron build commands
