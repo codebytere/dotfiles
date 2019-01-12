@@ -19,9 +19,6 @@
 [rebase]
   autosquash = true
 
-[format]
-	pretty = "%H %ci %ce %ae %d %s"
-
 [push]
 	default = simple
 
@@ -104,7 +101,7 @@
 	cob = checkout -b
 	com = checkout master
 	#############
-	cl = clone
+	clo = clone
 	#############
 	pa = "!f() { curl -L $1.patch | git am -3 --whitespace=fix; }; f"
 	pr = prune -v

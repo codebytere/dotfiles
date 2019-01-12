@@ -13,6 +13,7 @@ alias dot='cd ~/.dotfiles'
 alias up='cd ..'
 alias 2up='up && up'
 alias 3up='2up && up'
+alias 4up='2up && 2up'
 
 ########### TERMINAL COMMANDS ############
 
