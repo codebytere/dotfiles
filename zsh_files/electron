@@ -9,31 +9,47 @@ alias enode='dv && cd node'
 alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
-# electron build commands
-alias eb='g-n && gclient sync --with_branch_heads --with_tags && e'
-alias ebd='g-n && ninja -C out/Debug electron:electron'
-
-# electron build commands
+# electron commands for <= v3
 alias eb-old='python ./script/bootstrap.py -d -v'
 alias ebd-old='python ./script/build.py -c D'
+alias erun-old='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
 
 # misc
 alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
+alias sebd='ss && ebd'
 
-# electron run commands
-alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
-alias erun-old='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
-alias ebrun='build_run'
-alias et='test_setup_run && e'
+# electron build commands
+alias eb='setup_fresh'  # fresh setup and sync
+setup_fresh() {
+  run_dir=$(pwd)
+  g-n
+  export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
+  export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+  gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+  gclient sync && cd $run_dir
+}
+
+# build electron from src and return to original dir
+alias ebd='build_e' # build electron
+build_e() {
+  run_dir=$(pwd)
+  g-n && ninja -C out/Debug electron:electron
+  cd $run_dir
+}
 
 # rebuild node headers and run tests in ci mode
+alias et='test_setup_run'
 test_setup_run() {
+  run_dir=$(pwd)
   g-n && ebd
   ninja -C out/Debug third_party/electron_node:headers
   e && npm test -- --ci
+  cd $run_dir
 }
 
 # build and run a repro
+alias ebrun='build_run'
+alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
 build_run() {
   run_dir=$(pwd)
   {
