@@ -10,6 +10,7 @@ alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
 # electron commands for <= v3
+alias oe='dv && cd electron'
 alias oeb='python ./script/bootstrap.py -d -v'
 alias oebd='python ./script/build.py -c D'
 alias oerun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
