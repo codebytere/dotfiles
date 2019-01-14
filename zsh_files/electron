@@ -10,9 +10,9 @@ alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
 # electron commands for <= v3
-alias eb-old='python ./script/bootstrap.py -d -v'
-alias ebd-old='python ./script/build.py -c D'
-alias erun-old='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
+alias oeb='python ./script/bootstrap.py -d -v'
+alias oebd='python ./script/build.py -c D'
+alias oerun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
 
 # misc
 alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
