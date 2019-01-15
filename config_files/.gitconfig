@@ -159,6 +159,7 @@
 	sa = stash apply
 	sp = stash pop
 	#############
+	unlock = "checkout package-lock.json"
 	wkl = worktree list
 	wka = worktree add
 wh
