@@ -30,3 +30,6 @@ export SCCACHE_TWO_TIER=true
 
 export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+
+# increase default sccache
+export SCCACHE_CACHE_SIZE=20G
