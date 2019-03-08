@@ -23,8 +23,8 @@ alias sebd='ss && ebd'
 alias eb='setup_fresh'  # fresh setup and sync
 setup_fresh() {
   run_dir=$(pwd)
-  cd ~/Developer/electron-gn/
-  gclient sync && g-n
+  cd ~/Developer/electron-gn/src
+  gclient sync -vvv
   export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
   export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
   gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
