@@ -1,4 +1,4 @@
-########## WORK ###########
+##### NAVIGATION #####
 
 # navigation
 alias work='cd ~/Developer/does-work'
@@ -9,18 +9,26 @@ alias enode='dv && cd node'
 alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
+##### BUILDING (OLD) #####
+
 # electron commands for <= v3
 alias oe='dv && cd electron'
 alias oeb='python ./script/bootstrap.py -d -v'
 alias oebd='python ./script/build.py -c D'
 alias oerun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
 
+##### BUILDING #####
+
 # misc
 alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
 alias sebd='ss && ebd'
 
-# electron build commands
-alias eb='setup_fresh'  # fresh setup and sync
+# set minimum mac sdk against which to compile
+# usage: set-sdk 10.12 || set-sdk 10.13 || set-sdk 10.14
+alias set-sdk='export FORCE_MAC_SDK_MIN="$1"'
+
+# fresh setup and sync (essentially a bootstrap)
+alias eb='setup_fresh'
 setup_fresh() {
   run_dir=$(pwd)
   cd ~/Developer/electron-gn/src
@@ -31,7 +39,7 @@ setup_fresh() {
   cd $run_dir
 }
 
-# build electron from src and return to original dir
+# build electron from src
 alias ebd='build_e' # build electron
 build_e() {
   run_dir=$(pwd)
@@ -39,17 +47,9 @@ build_e() {
   cd $run_dir
 }
 
-# rebuild node headers and run tests in ci mode
-alias et='test_setup_run'
-test_setup_run() {
-  run_dir=$(pwd)
-  g-n && ebd
-  ninja -C out/Debug third_party/electron_node:headers
-  e && npm test -- --ci
-  cd $run_dir
-}
+##### RUNNING #####
 
-# build and run a repro
+# run an app with your local version of electron
 alias ebrun='build_run'
 alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
 build_run() {
@@ -62,15 +62,33 @@ build_run() {
   }
 }
 
+##### TESTING #####
+
+# rebuild node headers and run tests in ci mode
+alias et='test_setup_run'
+test_setup_run() {
+  run_dir=$(pwd)
+  g-n && ebd
+  ninja -C out/Debug third_party/electron_node:headers
+  e && npm test -- --ci
+  cd $run_dir
+}
+
+##### DEBUGGING #####
+
 # electron debug commands
 alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron spec'
 alias debug='lldb ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
+
+##### NODE #####
 
 # node commands
 alias nb='./configure && make -j4'
 alias nt='make -j4 test'
 alias nlt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
 alias nst='python tools/test.py'
+
+##### LIBUV #####
 
 # libuv stuff
 alias lb='./gyp_uv.py -f make && make -C out'
