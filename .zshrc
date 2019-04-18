@@ -33,3 +33,5 @@ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_bin
 
 # increase default sccache
 export SCCACHE_CACHE_SIZE=20G
+
+export GPG_TTY=$(tty)
