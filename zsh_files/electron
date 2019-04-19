@@ -70,7 +70,13 @@ test_setup_run() {
   run_dir=$(pwd)
   g-n && ebd
   ninja -C out/Debug third_party/electron_node:headers
-  e && npm test -- --ci
+  if [ "$1" == "-r" ]; then
+    e && npm test -- --ci --runners=remote
+  elif [ "$1" == "-m" ]; then
+    e && npm test -- --ci --runners=main
+  else
+    e && npm test -- --ci
+  fi
   cd $run_dir
 }
 
