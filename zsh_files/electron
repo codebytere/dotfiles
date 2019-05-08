@@ -27,6 +27,15 @@ alias sebd='ss && ebd'
 # usage: set-sdk 10.12 || set-sdk 10.13 || set-sdk 10.14
 alias set-sdk='export FORCE_MAC_SDK_MIN="$1"'
 
+# get the correct binary path for the OS
+run_binary() {
+  if [ "$(uname)" == "Darwin" ]; then
+    ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron $1
+  elif [ "$(uname)" == "Linux" ]; then
+    /home/codebytere/Developer/electron-gn/src/out/Debug/electron $1
+  fi
+}
+
 # fresh setup and sync (essentially a bootstrap)
 alias eb='setup_fresh'
 setup_fresh() {
@@ -51,12 +60,13 @@ build_e() {
 
 # run an app with your local version of electron
 alias ebrun='build_run'
-alias erun='~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
+alias erun='run_binary'
+
 build_run() {
   run_dir=$(pwd)
   {
     ebd && cd $run_dir
-    erun $1
+    run_binary $1
   } || {
     cd $run_dir
   }
