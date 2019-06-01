@@ -1,8 +1,8 @@
 diff --git a/lib/git.zsh b/lib/git.zsh
-index f7eccb8..f164eca 100644
+index 640561e..d7fafa1 100644
 --- a/lib/git.zsh
 +++ b/lib/git.zsh
-@@ -20,7 +20,9 @@ function parse_git_dirty() {
+@@ -17,7 +17,10 @@ function parse_git_dirty() {
      if [[ "$DISABLE_UNTRACKED_FILES_DIRTY" == "true" ]]; then
        FLAGS+='--untracked-files=no'
      fi
