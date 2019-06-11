@@ -7,8 +7,8 @@ index 640561e..d7fafa1 100644
        FLAGS+='--untracked-files=no'
      fi
 -    STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
-+    if [[ "$(pwd)" != *"/Users/codebytere/Developer/electron-gn/src"*  &&
-+    "$(pwd)" != *"/Users/codebytere/Developer/chromium/src"* ]]; then
++    if [[ "$(pwd)" != *"${HOME}/Developer/electron-gn/src"*  &&
++    "$(pwd)" != *"${HOME}/Developer/chromium/src"* ]]; then
 +      STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
 +    fi
    fi
