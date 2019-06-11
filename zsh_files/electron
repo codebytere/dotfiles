@@ -44,6 +44,11 @@ alias ebd='build_e' # build electron
 build_e() {
   run_dir=$(pwd)
   g-n && ninja -C out/Debug electron:electron
+
+  if [[ "$1" == "-s" ]]; then
+    ~/Developer/electron-gn/src/electron/external_binaries/sccache --show-stats
+  fi
+
   cd $run_dir
 }
 
