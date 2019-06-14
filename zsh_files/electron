@@ -68,6 +68,11 @@ build_run() {
   }
 }
 
+##### PATCHING #####
+
+alias exp='g-n && ./electron/script/git-export-patches -o electron/patches/chromium'
+alias ped='git commit --fixup'
+
 ##### TESTING #####
 
 # rebuild node headers and run tests in ci mode
