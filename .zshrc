@@ -18,11 +18,11 @@ done;
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ##### USER CONFIG #####
-export PATH="/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/scripts/rvm:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.node/bin::$HOME/depot_tools:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.node/bin:$HOME/Developer/depot_tools:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export GIT_CACHE_PATH="${HOME}/.git_cache"
 export SCCACHE_BUCKET="electronjs-sccache"
