@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+: '
+This command is a quick way to add a forgotten change
+to the most recent commit in a branch without needing to 
+create a new one for a trivial change. Automatically pushes
+to the current branch.
+'
+
+# get current branch
+branch="$(git branch | grep \* | cut -d ' ' -f2)"
+
+# stage all recently changes files
+git add .
+
+# amend the previous commit with no changes to msg
+git commit --amend --no-edit
+
+## force push the changes (with lease!)
+git push --force-with-lease origin $branch

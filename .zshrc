@@ -18,7 +18,8 @@ done;
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ##### USER CONFIG #####
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/.node/bin:$HOME/Developer/depot_tools:$PATH"
+
+export PATH="/Users/codebytere/.dotfiles/git/fns:/bin:/usr/local/MacGPG2/bin:/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:/Users/codebytere/.nvm/versions/node/v12.3.1/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/codebytere/.node/bin:/Users/codebytere/Developer/depot_tools"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
