@@ -159,6 +159,8 @@
 	sa = stash apply
 	sp = stash pop
 	#############
+	tack = "!f() { git add . && git can && git psfo $1; }; f"
+	#############
 	unlock = "checkout package-lock.json"
 	wkl = worktree list
 	wka = worktree add
