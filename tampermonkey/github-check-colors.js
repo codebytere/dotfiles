@@ -2,6 +2,7 @@
 // @name     GitHub Check Colors
 // @version  1
 // @include  https://github.com/*
+// @description A userscript that highlights CircleCI checks statuses
 // @grant    none
 // ==/UserScript==
 
