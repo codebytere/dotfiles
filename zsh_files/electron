@@ -21,6 +21,7 @@ alias oerun='~/Developer/electron/out/D/Electron.app/Contents/MacOS/Electron'
 
 # misc
 alias ss='~/Developer/electron-gn/src/electron/external_binaries/sccache --start-server'
+alias ss-stat='~/Developer/electron-gn/src/electron/external_binaries/sccache --show-stats'
 alias sebd='ss && ebd'
 
 # set minimum mac sdk against which to compile
@@ -34,7 +35,7 @@ setup_fresh() {
   cd ~/Developer/electron-gn/src
   gclient sync -vvv
   export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-  export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+  export GN_EXTRA_ARGS="cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
   gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
   cd $run_dir
 }
