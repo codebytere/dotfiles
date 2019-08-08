@@ -19,7 +19,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ##### USER CONFIG #####
 
-export PATH="/Users/codebytere/.dotfiles/git/fns:/bin:/usr/local/MacGPG2/bin:/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:/Users/codebytere/.nvm/versions/node/v12.3.1/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/codebytere/.node/bin:/Users/codebytere/Developer/depot_tools"
+export PATH="/usr/local/texlive/2019/bin/x86_64-darwin:/Users/codebytere/.dotfiles/git/fns:/bin:/usr/local/MacGPG2/bin:/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:/Users/codebytere/.nvm/versions/node/v12.3.1/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/codebytere/.node/bin:/Users/codebytere/Developer/depot_tools"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
