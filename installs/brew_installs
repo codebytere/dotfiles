@@ -15,14 +15,13 @@ brew tap caskroom/cask
 
 #### DEVELOPMENT ####
 brew cask install hyper
-brew cask install atom
-brew cask install airtable
+brew cask install visual-studio-code
+brew cask install notions
 brew cask install polymail
 brew cask install vlc
 brew cask install spotify
 brew cask install transmission
 brew cask install slack
-brew cask install nylas-n1
 brew cask install caprine
 brew cask install google-chrome
 brew cask install flux

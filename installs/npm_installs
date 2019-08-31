@@ -11,10 +11,7 @@ function require_npm() {
 }
 
 require_npm http-server
-require_npm empty-trash-cli
-require_npm fkill-cli
 require_npm speed-test
-require_npm gh-home
 require_npm pretty-error
 
 bot "your chosen npm packages installed successfully"

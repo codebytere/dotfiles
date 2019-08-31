@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+set -e
 
 : '
 This command is a quick way to add a forgotten change
@@ -13,7 +14,7 @@ branch="$(git branch | grep \* | cut -d ' ' -f2)"
 # stage all recently changes files
 git add .
 
-# amend the previous commit with no changes to msg
+# amend the previous commit with no changes to commit msg
 git commit --amend --no-edit
 
 ## force push the changes (with lease!)

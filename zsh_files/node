@@ -1,0 +1,10 @@
+##### NODE #####
+
+# build node
+alias nb='./configure && make -j4'
+
+# run tests
+alias nt='make -j4 test'
+
+alias nlt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
+alias nst='python tools/test.py'
