@@ -17,7 +17,7 @@ alias ss-stat='~/Developer/electron-gn/src/electron/external_binaries/sccache --
 
 # set minimum mac sdk against which to compile
 # usage: set-sdk 10.12 || set-sdk 10.13 || set-sdk 10.14
-alias set-sdk='export FORCE_MAC_SDK_MIN="$1"'
+alias set-sdk='export FORCE_MAC_SDK_MIN=$1'
 
 # fresh setup and sync (essentially a bootstrap)
 alias eb='setup_fresh'
