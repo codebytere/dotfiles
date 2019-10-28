@@ -13,6 +13,13 @@ alias dot='cd ~/.dotfiles'
 alias up='cd ..'
 alias 2up='up && up'
 
+alias work='cd ~/Developer/does-work'
+alias g-n='cd ~/Developer/electron-gn/src'
+alias el='cd ~/Developer/electron-gn/src/electron'
+alias libuv='dv && cd libuv'
+alias libcc='dv && cd libchromiumcontent'
+alias repros='dv && cd repros'
+
 ########### TERMINAL COMMANDS ############
 
 alias _='sudo'

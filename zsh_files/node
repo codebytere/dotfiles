@@ -1,10 +1,18 @@
 ##### NODE #####
 
-# build node
-alias nb='./configure && make -j4'
+# Build Node.js
+alias nb='python2.7 configure.py && make -j4'
 
-# run tests
+# Lint Node.js
+alias nl='make lint'
+
+# Run test suites
 alias nt='make -j4 test'
 
-alias nlt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
-alias nst='python tools/test.py'
+##### LIBUV #####
+
+# Build libuv
+alias lb='./gyp_uv.py -f make && make -C out'
+
+# Run test suites
+alias lt='./out/Debug/run-tests'

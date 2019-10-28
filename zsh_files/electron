@@ -1,14 +1,3 @@
-##### NAVIGATION #####
-
-# navigation
-alias work='cd ~/Developer/does-work'
-alias g-n='cd ~/Developer/electron-gn/src'
-alias el='cd ~/Developer/electron-gn/src/electron'
-alias libuv='dv && cd libuv'
-alias enode='dv && cd node'
-alias libcc='dv && cd libchromiumcontent'
-alias repros='dv && cd repros'
-
 ##### BUILDING #####
 
 # misc
@@ -18,31 +7,3 @@ alias ss-stat='~/Developer/electron-gn/src/electron/external_binaries/sccache --
 # set minimum mac sdk against which to compile
 # usage: set-sdk 10.12 || set-sdk 10.13 || set-sdk 10.14
 alias set-sdk='export FORCE_MAC_SDK_MIN=$1'
-
-# fresh setup and sync (essentially a bootstrap)
-alias eb='setup_fresh'
-setup_fresh() {
-  run_dir=$(pwd)
-  cd ~/Developer/electron-gn/src
-  gclient sync -vvv
-  export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-  export GN_EXTRA_ARGS="cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-  gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
-  cd $run_dir
-}
-
-##### PATCHING #####
-
-alias exp='g-n && ./electron/script/git-export-patches -o electron/patches/chromium'
-alias ped='git commit --fixup'
-
-##### DEBUGGING #####
-
-# electron debug commands
-alias debug-spec='lldb -- ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron spec'
-alias debug='lldb ~/Developer/electron-gn/src/out/Debug/Electron.app/Contents/MacOS/Electron'
-
-##### LIBUV #####
-
-# libuv stuff
-alias lb='./gyp_uv.py -f make && make -C out'
