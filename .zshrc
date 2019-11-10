@@ -19,7 +19,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 ##### USER CONFIG #####
 
-export PATH="/usr/local/go/bin:/Applications/CMake.app/Contents/bin:/Users/codebytere/build-tools/src:/usr/local/texlive/2019/bin/x86_64-linux:/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/scripts/rvm:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.node/bin:$HOME/Developer/depot_tools"
+export PATH="/usr/local/go/bin:/Applications/CMake.app/Contents/bin:/Users/codebytere/build-tools/src:/usr/local/texlive/2019/bin/x86_64-linux:/Users/codebytere/.rvm/gems/ruby-2.3.0/bin:$HOME/.rvm/scripts/rvm:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.node/bin:$HOME/Developer/depot_tools:$HOME/.dotfiles/git/fns"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 

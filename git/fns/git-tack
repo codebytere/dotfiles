@@ -11,8 +11,14 @@ to the current branch.
 # get current branch
 branch="$(git branch | grep \* | cut -d ' ' -f2)"
 
-# stage all recently changes files
-git add .
+# choose what file(s) to stage
+if [ "$#" -eq 1 ]; then
+# allow the user to only stage specific files
+  git add $1
+else
+# if no files passed, stage all recently changed files
+  git add .
+fi
 
 # amend the previous commit with no changes to commit msg
 git commit --amend --no-edit
