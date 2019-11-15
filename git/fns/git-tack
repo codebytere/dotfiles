@@ -4,10 +4,9 @@ set -e
 : '
 git tack <file_name>
 
-This command is a quick way to add a forgotten change
-to the most recent commit in a branch without needing to 
-create a new one for a trivial change. Automatically pushes
-to the current branch.
+A quick way to add a forgotten change to the most recent commit
+in a branch without needing to create a new one for a trivial 
+change. Automatically pushes to the current branch.
 '
 
 # get current branch

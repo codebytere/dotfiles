@@ -4,7 +4,7 @@ set -e
 : '
 git patch-out <file_location> <file_name>
 
-This command allows a user to quickly dump a diff
+Allow a user to quickly dump a diff
 in patch format to their desktop.
 '
 
@@ -22,4 +22,4 @@ PATCH_NAME=${2:-"local_diff"}
 
 # get changes to all tracked files and then redirect
 # output to a patch at desired location
-git diff HEAD > $PATCH_LOCATION/$PATCH_NAME.patch
+git diff --full-index HEAD > $PATCH_LOCATION/$PATCH_NAME.patch
