@@ -106,6 +106,7 @@
 	pa = "!f() { curl -L $1.patch | git am -3 --whitespace=fix; }; f"
 	pr = prune -v
 	#############
+	po = patch-out
 	ps = push
 	psf = push --force-with-lease
 	psu = push upstream
