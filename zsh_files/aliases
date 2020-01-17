@@ -1,6 +1,6 @@
 #!bin/bash
 
-############### NAVIGATION ###############
+###### NAVIGATION #####
 
 alias icloud='cd ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/'
 
@@ -17,10 +17,9 @@ alias work='cd ~/Developer/does-work'
 alias g-n='cd ~/Developer/electron-gn/src'
 alias el='cd ~/Developer/electron-gn/src/electron'
 alias libuv='dv && cd libuv'
-alias libcc='dv && cd libchromiumcontent'
 alias repros='dv && cd repros'
 
-########### TERMINAL COMMANDS ############
+##### TERMINAL COMMANDS ######
 
 alias _='sudo'
 alias cls='clear'
@@ -34,11 +33,38 @@ alias spoton='sudo mdutil -a -i on'
 
 alias c='tr -d '\n' | pbcopy'
 
-############### PROCESSES ###############
+##### PROCESSES #####
 
 alias serve='http-server -o'
 alias sp='speed-test'
 
-############### MISC ###############
+##### MISC ######
 
 alias localip='ipconfig getifaddr en0'
+
+##### NODE #####
+
+# build Node.js
+alias nb='python2.7 configure.py && make -j4'
+
+# lint Node.js
+alias nl='make lint'
+
+# run test suites
+alias nt='make -j4 test'
+
+##### LIBUV #####
+
+# build libuv
+alias lb='./gyp_uv.py -f make && make -C out'
+
+# run test suites
+alias lt='./out/Debug/run-tests'
+
+##### AZURE #####
+
+# start windows azure vm
+alias az-start='az vm start -g codebytere-personal -n Codebytere-VM'
+
+# stop windows azure vm
+alias az-stop='az vm stop -g codebytere-personal -n Codebytere-VM'
