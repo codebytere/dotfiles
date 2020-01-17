@@ -1,0 +1,1 @@
+osascript -e 'tell application "System Events" to key code 96 using command down'

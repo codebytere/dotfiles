@@ -33,6 +33,9 @@ alias spoton='sudo mdutil -a -i on'
 
 alias c='tr -d '\n' | pbcopy'
 
+# toggle VoiceOver
+alias vo='sh ~/.dotfiles/config_files/vo.sh'
+
 ##### PROCESSES #####
 
 alias serve='http-server -o'
