@@ -8,10 +8,13 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_THEME="sorin"
 
-#load in all dotfile aliases and fxns
+# load in all dotfile aliases and fxns
 for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
+
+# load custom git functions (see: https://github.com/codebytere/git-fns)
+source ~/Developer/git-fns
 
 ##### PLUGINS #####
 
