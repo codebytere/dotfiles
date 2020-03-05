@@ -26,7 +26,11 @@ alias cls='clear'
 alias a="code -a"
 alias g='git'
 
-alias r!='source ~/.dotfiles/.zshrc'
+alias r!='source ~/.zshrc'
+
+alias lc='colorls'
+alias stat='colorls --gs'
+alias tree='colorls --group-directories-first --tree=2'
 
 alias spotoff='sudo mdutil -a -i off'
 alias spoton='sudo mdutil -a -i on'
