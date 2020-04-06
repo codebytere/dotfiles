@@ -8,6 +8,10 @@
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol, space-before-tab
 	excludesfile = ~/.gitignore
 	precomposeUnicode = true
+	longpaths = true
+
+[merge]
+	conflictstyle = diff3
 
 [web]
 	browser = google-chrome
@@ -106,7 +110,7 @@
 	pa = patch-apply # custom (see git-fns)
 	pr = prune -v
 	#############
-	po = patch-out
+	po = patch-out # custom (see git-fns)
 	ps = push
 	psf = push --force-with-lease
 	psu = push upstream
@@ -160,7 +164,7 @@
 	rvq = revert --quit
 	#############
 	s = status
-	sb = status -s -b
+	sb = status -sb
 	sh = show
 	st = stash
 	sa = stash apply
