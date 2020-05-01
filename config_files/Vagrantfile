@@ -4,7 +4,6 @@
 Vagrant.configure("2") do |config|
   config.vm.define "linux", autostart: false do |linux|
     linux.vm.box = "fasmat/ubuntu1804-desktop"
-    linux.vm.network "public_network"
     linux.vm.synced_folder "~/Developer", "/shared"
 
     linux.vm.provider "virtualbox" do |vb|
@@ -15,7 +14,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "win", autostart: false do |win|
     win.vm.box = "Microsoft/EdgeOnWindows10"
-    win.vm.network "public_network"
     win.vm.synced_folder "~/Developer", "/shared"
 
     win.vm.provider "virtualbox" do |vb|
