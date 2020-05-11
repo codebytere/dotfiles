@@ -52,13 +52,13 @@ alias localip='ipconfig getifaddr en0'
 ##### NODE #####
 
 # build Node.js
-alias nb='python2.7 configure.py && make -j4'
+alias nb='./configure && make -j12'
 
 # lint Node.js
 alias nl='make lint'
 
 # run test suites
-alias nt='make -j4 test'
+alias nt='make -j12 test'
 
 ##### LIBUV #####
 
