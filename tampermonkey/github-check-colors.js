@@ -6,12 +6,15 @@
 // @grant    none
 // ==/UserScript==
 
-for (const li of document.querySelectorAll('[data-channel^="check_runs:"] .container-md li')) {
+for (const li of document.querySelectorAll('.js-checks-summary .container-md li')) {
   if (/Failed/.test(li.textContent)) {
     li.style.color = 'red'
+    li.style['font-weight'] = 'bold'
   } else if (/Running/.test(li.textContent)) {
-    li.style.color = '#CCCC00'
+    li.style.color = '#ccb400'
   } else if (/Success/.test(li.textContent)) {
     li.style.color = 'green'
+  } else if (/Blocked/.test(li.textContent)) {
+    li.style.color = '#9200cc'
   }
 }
