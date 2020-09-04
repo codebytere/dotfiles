@@ -16,6 +16,7 @@ alias 2up='up && up'
 alias work='cd ~/Developer/does-work'
 alias g-n='cd ~/Developer/electron-gn/src'
 alias el='cd ~/Developer/electron-gn/src/electron'
+alias enode='cd ~/Developer/electron-gn/src/third_party/electron_node'
 alias libuv='dv && cd libuv'
 alias repros='dv && cd repros'
 
@@ -52,7 +53,7 @@ alias localip='ipconfig getifaddr en0'
 ##### NODE #####
 
 # build Node.js
-alias nb='./configure && make -j12'
+alias nb='./configure --ninja && make -j12'
 
 # lint Node.js
 alias nl='make lint'
@@ -75,3 +76,7 @@ alias az-start='az vm start -g codebytere-personal -n Codebytere-VM'
 
 # stop windows azure vm
 alias az-stop='az vm stop -g codebytere-personal -n Codebytere-VM'
+
+##### MISC #####
+
+alias logisim='java -jar /Applications/Logisim.app/Contents/Resources/Java/logisim.jar'

@@ -27,9 +27,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export GPG_TTY=$(tty)
 
-# Enable syntax highlighting in new shell sessions
-source /usr/local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 ##### INSTALLATION PATH #####
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
