@@ -13,7 +13,6 @@ alias dot='cd ~/.dotfiles'
 alias up='cd ..'
 alias 2up='up && up'
 
-alias work='cd ~/Developer/does-work'
 alias g-n='cd ~/Developer/electron-gn/src'
 alias el='cd ~/Developer/electron-gn/src/electron'
 alias enode='cd ~/Developer/electron-gn/src/third_party/electron_node'
