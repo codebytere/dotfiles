@@ -1,34 +1,56 @@
 #!/bin/bash
 
 ######### BREW PKGS ##########
-running "installing python"
+running "installing python3"
 brew install python
 
-running "installing zsh"
-brew install zsh
-
-brew install fontconfig
-
 ########## APPS ###########
-running "installing brew cask"
-brew tap caskroom/cask
 
-#### DEVELOPMENT ####
-brew cask install hyper
-brew cask install visual-studio-code
-brew cask install notions
-brew cask install polymail
-brew cask install vlc
-brew cask install spotify
-brew cask install transmission
-brew cask install slack
-brew cask install caprine
-brew cask install google-chrome
-brew cask install flux
-brew cask install dropbox
-brew cask install 1password
+running "installing apps with brew cask"
+
+# https://www.electronjs.org/fiddle
+brew install --cask electron-fiddle
+
+# https://flexibits.com/fantastical
+brew install --cask fantastical
+
+# https://fig.io
+brew install --cask fig
+
+# https://iterm2.com
+brew install --cask iterm2
+
+# https://www.google.com/chrome
+brew install --cask google-chrome
+
+# https://notion.so
+brew install --cask notion
+
+# https://polymail.io
+brew install --cask polymail
+
+# https://slack.com
+brew install --cask slack
+
+# https://signal.org
+brew install --cask signal
+
+# https://spotify.com
+brew install --cask spotify
+
+# https://github.com/exelban/stats
+brew install --cask stats
+
+# https://code.visualstudio.com
+brew install --cask visual-studio-code
+
+# https://www.whatsapp.com
+brew install --cask whatsapp
+
+# https://1password.com
+brew install --cask 1password
 
 running "cleaning up cask files"
 brew cask cleanup
 
-bot "chosen brew and brew cask packages installed successfully"
+bot "chosen brew packages installed successfully"
