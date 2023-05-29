@@ -108,7 +108,7 @@
 	co = checkout
 	cob = checkout -b
 	main-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4"
-	com = "!f(){ git checkout $(git main-branch) $@;}; f"
+	com = "!f() { git checkout $(git main-branch) $@;}; f"
 	#############
 	clo = clone
 	#############
@@ -125,21 +125,21 @@
 	psfo = push --force-with-lease origin
 	psfu = push --force-with-lease upstream
 	psuo = push -u origin
-	psom = push origin master
-	psuom = push -u origin master
+	psom = "!f() { git push origin $(git main-branch); }; f"
+	psuom = "!f() { git push -u origin $(git main-branch); }; f"
 	#############
 	pl = pull
 	plu = pull -u
 	plo = pull origin
 	plp = pull upstream
-	plom = pull origin master
+	plom = "!f() { git pull origin $(git main-branch) }; f"
 	#############
 	pb = pull --rebase
 	pba = pull --rebase --autostash
 	pbo = pull --rebase origin
 	pbu = pull --rebase upstream
-	pbom = pull --rebase origin master
-	pbum = pull --rebase upstream master
+	pbom = "!f() { git pull --rebase origin $(git main-branch); }; f"
+	pbum = "!f() { git pull --rebase upstream $(git main-branch); }; f"
 	#############
 	rb = rebase
 	rba = rebase --abort
