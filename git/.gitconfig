@@ -183,4 +183,4 @@
 	gpgsign = true
 
 [http]
-	cookiefile = /Users/codebytere/.gitcookies
+	cookiefile = ~/.gitcookies
