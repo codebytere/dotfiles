@@ -2,7 +2,7 @@
 source resources.sh
 
 bot "hello! welcome to your new computer"
-bot "let's get going! "
+bot "let's get going!"
 
 bot "installing osx command line tools"
 xcode-select --install
@@ -77,14 +77,6 @@ if confirmed; then
   set_git_info
 else
   bot "ok, but remember to do it before your first commit! "
-fi
-
-bot "setting zsh as the user shell"
-CURRENTSHELL=$(dscl . -read /Users/$USER UserShell | awk '{print $2}')
-if [[ "$CURRENTSHELL" != "/usr/local/bin/zsh" ]]; then
-  bot "setting newer homebrew zsh (/usr/local/bin/zsh) as your shell (password required)"
-  sudo dscl . -change /Users/$USER UserShell $SHELL /usr/local/bin/zsh > /dev/null 2>&1
-  ok
 fi
 
 running "sourcing zshrc"
