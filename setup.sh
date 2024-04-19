@@ -83,8 +83,8 @@ running "sourcing zshrc"
 source ~/.zshrc
 ok
 
-running "sourcing osx defaults"
+running "setting osx system defaults"
 source .osx
 ok
 
-bot "whooo, all set! "
+bot "success - you're ready to go!"
