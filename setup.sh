@@ -47,11 +47,6 @@ running "Select which bundled gems you want to install"
 source installs/gem_installs
 ok "feel free to add more ruby gems! "
 
-#globally install atom packages
-running "select the atom packages you would like to install"
-source installs/apm_installs
-ok "feel free to add more atom packages! "
-
 # hard link .zshrc
 running "linking your .zshrc!"
 ln ~/.dotfiles/.zshrc ~/.zshrc
