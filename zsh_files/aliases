@@ -52,7 +52,10 @@ alias localip='ipconfig getifaddr en0'
 ##### NODE #####
 
 # build Node.js
-alias nb='./configure --ninja && make -j12'
+alias nc='./configure --ninja'
+
+# build Node.js with clang
+alias nb='ninja -C out/Release'
 
 # lint Node.js
 alias nl='make lint'
