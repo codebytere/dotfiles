@@ -3,6 +3,9 @@
 	email = shelley.vohr@gmail.com
 	signingkey = 5599653C
 
+[am]
+	threeWay = true
+
 [core]
 	editor = code --wait
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol, space-before-tab
@@ -175,6 +178,10 @@
 	st = stash
 	sa = stash apply
 	sp = stash pop
+	#############
+	sw = switch
+	swc = switch -c
+	swd = switch --detach
 	#############
 	wkl = worktree list
 	wka = worktree add
