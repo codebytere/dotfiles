@@ -5,7 +5,7 @@
 ZSH_THEME="csv"
 
 # Load in all dotfile aliases and fxns
-for file in ~/.dotfiles/zsh_files/{aliases,functions,googlesource}; do
+for file in ~/.dotfiles/{aliases,functions,googlesource}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 
