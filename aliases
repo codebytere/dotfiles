@@ -49,6 +49,8 @@ alias sp='speed-test'
 
 alias localip='ipconfig getifaddr en0'
 
+alias ci-connect='~/Developer/infra/argo/arc-cluster/connect.sh'
+
 ##### NODE #####
 
 # build Node.js
