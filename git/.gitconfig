@@ -1,43 +1,126 @@
-[user]
-	name = Shelley Vohr
-	email = shelley.vohr@gmail.com
-	signingkey = 5599653C
+[alias]
+	#############
+	a = add --all
+	ac = apply --check
+	ai = add -i
+	aliases = config --get-regexp alias
+	ama = am --abort
+	amc = am --continue
+	amr = am --resolved
+	ams = am --skip
+	ap = apply
+	as = apply --stat
+	#############
+	b = branch
+	ba = branch -a
+	bd = branch -D
+	bm = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+	br = branch -r
+	bv = branch -v
+	#############
+	c = commit
+	ca = commit --amend
+	cam = commit -am
+	can = commit --amend --no-edit
+	clo = clone
+	cm = commit -m
+	co = checkout
+	cob = checkout -b
+	com = "!f(){ git checkout $(git main-branch) $@;}; f"
+	cp = cherry-pick
+	cpa = cherry-pick --abort
+	cpc = cherry-pick --continue
+	#############
+	d = diff
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	ds = diff --staged
+	#############
+	f = fetch
+	fo = fetch origin
+	fp = format-patch
+	fu = fetch upstream
+	#############
+	g = grep -p
+	#############
+	lo = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	#############
+	m = merge
+	ma = merge --abort
+	main-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4"
+	mc = merge --continue
+	ms = merge --skip
+	#############
+	pa = patch-apply # custom (see git-fns)
+	pb = pull --rebase
+	pba = pull --rebase --autostash
+	pbo = pull --rebase origin
+	pbom = "!f() { git pull --rebase origin $(git main-branch); }; f"
+	pbu = pull --rebase upstream
+	pbum = "!f() { git pull --rebase upstream $(git main-branch); }; f"
+	pit = "!f() { echo $1 | sed s_pull/[1-9]*/commits_commit_ | xargs curl -L | git am -3 --whitespace=fix; }; f"
+	pl = pull
+	plo = pull origin
+	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
+	plom = "!f() { git pull origin $(git main-branch) }; f"
+	plp = pull upstream
+	plu = pull -u
+	po = patch-out # custom (see git-fns)
+	pr = prune -v
+	ps = push
+	psao = push --all origin
+	psf = push --force-with-lease
+	psfo = push --force-with-lease origin
+	psfu = push --force-with-lease upstream
+	pso = push origin
+	psom = "!f() { git push origin $(git main-branch); }; f"
+	psu = push upstream
+	psuo = push -u origin
+	psuom = "!f() { git push -u origin $(git main-branch); }; f"
+	#############
+	r = remote
+	ra = remote add
+	rao = remote add origin
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+	re = reset
+	reh = reset --hard
+	rehh = reset --hard HEAD
+	res = reset --soft
+	resh = reset --soft HEAD
+	rev = revert
+	rh = reset HEAD
+	rm = remote rename
+	rr = remote rm
+	rs = remote show
+	rso = remote show origin
+	rv = remote -v
+	rva = revert --abort
+	rvc = revert --continue
+	rvq = revert --quit
+	rvs = revert --skip
+	#############
+	s = status
+	sa = stash apply
+	sb = status -sb
+	sh = show
+	sp = stash pop
+	st = stash
+	#############
+	tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
 
 [am]
 	threeWay = true
 
-[core]
-	editor = code --wait
-	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol, space-before-tab
-	excludesfile = ~/.gitignore
-	precomposeUnicode = true
-	longpaths = true
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
+	sort = committerdate
 
-[fetch]
-	prune = true
-
-[merge]
-	conflictstyle = diff3
-
-[oh-my-zsh]
-	hide-status = 1
-	hide-dirty = 1
-
-[web]
-	browser = google-chrome
-
-[rerere]
-	enabled = 1
-	autoupdate = 1
-
-[rebase]
-	autosquash = true
-
-[push]
-	default = simple
-
-[help]
-	autocorrect = 1
+[color]
+  ui = auto
 
 [color "branch"]
 	current = yellow bold
@@ -45,10 +128,10 @@
 	remote = cyan bold
 
 [color "diff"]
-	meta = yellow bold
 	frag = magenta bold
-	old = red bold
+	meta = yellow bold
 	new = green bold
+	old = red bold
 	whitespace = red reverse
 
 [color "status"]
@@ -56,138 +139,99 @@
 	changed = yellow bold
 	untracked = red bold
 
-[alias]
-	#############
-	aliases = config --get-regexp alias
-	a = add --all
-	ai = add -i
-	#############
-	ap = apply
-	as = apply --stat
-	ac = apply --check
-	#############
-	ama = am --abort
-	amc = am --continue
-	amr = am --resolved
-	ams = am --skip
-	#############
-	b = branch
-	bm = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
-	ba = branch -a
-	bd = branch -D
-	br = branch -r
-	bv = branch -v
-	#############
-	c = commit
-	ca = commit --amend
-	cm = commit -m
-	cam = commit -am
-	can = commit --amend --no-edit
-	#############
-	cp = cherry-pick
-	cpa = cherry-pick --abort
-	cpc = cherry-pick --continue
-	#############
-	d = diff
-	ds = diff --staged
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-	#############
-	f = fetch
-	fo = fetch origin
-	fu = fetch upstream
-	fp = format-patch
-	#############
-	g = grep -p
-	#############
-	plog = log --graph --pretty='format:%C(red)%d%C(reset) %C(yellow)%h%C(reset) %ar %C(green)%aN%C(reset) %s'
-	tlog = log --stat --since='1 Day Ago' --graph --pretty=oneline --abbrev-commit --date=relative
-	lo = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	#############
-	m = merge
-	ma = merge --abort
-	mc = merge --continue
-	ms = merge --skip
-	#############
-	co = checkout
-	cob = checkout -b
-	main-branch = "!git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4"
-	com = "!f() { git checkout $(git main-branch) $@;}; f"
-	#############
-	clo = clone
-	#############
-	pa = patch-apply # custom (see git-fns)
-	pit = "!f() { echo $1 | sed s_pull/[1-9]*/commits_commit_ | xargs curl -L | git am -3 --whitespace=fix; }; f"
-	pr = prune -v
-	#############
-	po = patch-out # custom (see git-fns)
-	ps = push
-	psf = push --force-with-lease
-	psu = push upstream
-	pso = push origin
-	psao = push --all origin
-	psfo = push --force-with-lease origin
-	psfu = push --force-with-lease upstream
-	psuo = push -u origin
-	psom = "!f() { git push origin $(git main-branch); }; f"
-	psuom = "!f() { git push -u origin $(git main-branch); }; f"
-	#############
-	pl = pull
-	plu = pull -u
-	plo = pull origin
-	plp = pull upstream
-	plom = "!f() { git pull origin $(git main-branch) }; f"
-	#############
-	pb = pull --rebase
-	pba = pull --rebase --autostash
-	pbo = pull --rebase origin
-	pbu = pull --rebase upstream
-	pbom = "!f() { git pull --rebase origin $(git main-branch); }; f"
-	pbum = "!f() { git pull --rebase upstream $(git main-branch); }; f"
-	#############
-	rb = rebase
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbi = rebase --interactive
-	rbs = rebase --skip
-	#############
-	re = reset
-	rh = reset HEAD
-	reh = reset --hard
-	res = reset --soft
-	rehh = reset --hard HEAD
-	resh = reset --soft HEAD
-	#############
-	r = remote
-	ra = remote add
-	rr = remote rm
-	rv = remote -v
-	rm = remote rename
-	rs = remote show
-	rao = remote add origin
-	rso = remote show origin
-	#############
-	rev = revert
-	rva = revert --abort
-	rvc = revert --continue
-	rvs = revert --skip
-	rvq = revert --quit
-	#############
-	s = status
-	sb = status -sb
-	sh = show
-	st = stash
-	sa = stash apply
-	sp = stash pop
-	#############
-	sw = switch
-	swc = switch -c
-	swd = switch --detach
-	#############
-	wkl = worktree list
-	wka = worktree add
-
 [commit]
 	gpgsign = true
 
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore
+	fsmonitor = true
+	longpaths = true
+	precomposeUnicode = true
+	untrackedcache = true
+	whitespace = fix, -indent-with-non-tab, trailing-space, cr-at-eol, space-before-tab
+
+[credential "https://android.googlesource.com"]
+    helper = 
+    helper = luci
+
+[credential "https://aomedia.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://beto-core.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://boringssl.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://chrome-internal.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://chromium.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://dawn.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://pdfium.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://quiche.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://skia.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://swiftshader.googlesource.com"]
+	helper = 
+	helper = luci
+
+[credential "https://webrtc.googlesource.com"]
+	helper = 
+	helper = luci
+
+[diff]
+  colorMoved = zebra
+
+[fetch]
+  prune = true
+
+[help]
+  autocorrect = 1
+
 [http]
-	cookiefile = ~/.gitcookies
+  postBuffer = 157286400
+
+[merge]
+  conflictstyle = diff3
+
+[oh-my-zsh]
+	hide-dirty = 1
+	hide-status = 1
+
+[push]
+  default = simple
+
+[rebase]
+  autosquash = true
+
+[rerere]
+	autoupdate = 1
+	enabled = 1
+
+[user]
+	email = shelley.vohr@gmail.com
+	name = Shelley Vohr
+	signingkey = 5599653C
+
+[web]
+  browser = google-chrome
